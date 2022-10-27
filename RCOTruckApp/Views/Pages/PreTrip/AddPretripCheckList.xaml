@@ -1,0 +1,134 @@
+﻿<Page x:Class="RCOTruckApp.Views.Pages.PreTrip.AddPretripCheckList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:gmaps="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+      mc:Ignorable="d" 
+      Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}"
+      Title="PreTrip Personal Conveyance"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="{x:Null}"
+      ShowsNavigationUI="False"
+      Height="1000"
+      >
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+
+        <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" >
+            <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+              
+                <Grid VerticalAlignment="Top"  Margin="20">
+                    <Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="370"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="160"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel  Grid.Row="0" >
+                        <Label Content="Personal Conveyance" FontSize="20" FontWeight="Bold" />
+                        <CheckBox x:Name="chkAll" Content="Check All" Margin="10" Checked="chkAll_Checked" Unchecked="chkAll_Unchecked"></CheckBox>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="1" Orientation="Horizontal">
+                        <Label Margin="0 10 0 0" Content="Odometer Number"  FontSize="16" FontWeight="Bold"/>
+                        <TextBox Text="" Margin="50 0 0 0" x:Name="txtodometer" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter odmeter number" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="220" />
+                        <Separator/>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="2"  x:Name="spTruckPreTripCheckList">
+                        <Label Content="Truck / TractorInfo"  FontSize="20" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal" >
+                            <Label Margin="0 10 0 0" Content="Truck / Tractor Number"  FontSize="16" FontWeight="Bold"/>
+                            <TextBox Text="" Margin="17,0,0,0" x:Name="txtTruckNumber" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter truck/tractor number" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="220" />
+                        </StackPanel>
+
+                        <WrapPanel x:Name="wpTruckPreTripCheckList" Orientation="Horizontal" Margin="0 10 0 0" Width="1500">
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="3" >
+                        <Label Content="Trailer 1"  FontSize="20" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0 10 0 0" Content="Truck / Tractor Number"  FontSize="16" FontWeight="Bold"/>
+                            <TextBox Text="" x:Name="txtTrailer1Number" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter Trailer 1 Number" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="220" Margin="17,0,0,0" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <Label Margin="0 10 0 0" Content="Reefer HOS."  FontSize="18" FontWeight="Bold"/>
+                            <TextBox Text="" Margin="92,0,0,0" x:Name="txtReefer" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter Reefer HOS." BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="220" />
+                        </StackPanel>
+
+                        <WrapPanel x:Name="wpTrailer1CheckList" Orientation="Horizontal" Margin="0 20 0 0" Width="1500">
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="4" Margin="0 10 0 0">
+                        <Label Content="Trailer 2"  FontSize="20" FontWeight="Bold"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0 10 0 0" Content="Truck / Tractor Number"  FontSize="16" FontWeight="Bold"/>
+                            <TextBox Text="" Margin="18,0,0,0" x:Name="txtTrailer2Number" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter Trailer 2 Number" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" HorizontalAlignment="Right" Width="220" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <Label Margin="0 10 0 0" Content="Reefer HOS."  FontSize="18" FontWeight="Bold"/>
+                            <TextBox Text="" x:Name="txtReefer2" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter Reefer HOS." BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" HorizontalAlignment="Right" Width="220" Margin="92,0,0,0" />
+                        </StackPanel>
+
+                        <WrapPanel x:Name="wpTrailer2CheckList" Orientation="Horizontal" Margin="0 20 0 0" Width="1500">
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="5" Margin="0 10 0 0">
+                        <Label Content="Remarks"  FontSize="20" FontWeight="Bold"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0 10 0 0" Content="Enter Remarks"  FontSize="16" FontWeight="Bold"/>
+                            <TextBox Text="" Margin="85,0,0,0" x:Name="txtRemarks" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter Remarks" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" HorizontalAlignment="Right" Width="220" />
+                        </StackPanel>
+
+                        <WrapPanel x:Name="wpRemarksCheckList" Orientation="Horizontal" Margin="0 20 0 0" Width="1500">
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="6" >
+                        <Label Content="Driver"  FontSize="20" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label Margin="0 10 0 0" Content="Driver Name"  FontSize="18" FontWeight="Bold"/>
+                            <TextBox Text="" x:Name="txtDriverName" Height="50" FontSize="11" materialDesign:HintAssist.Foreground="#fff" materialDesign:HintAssist.Hint="Enter driver name." BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" HorizontalAlignment="Right" Width="220" Margin="92,0,0,0" />
+                        </StackPanel>
+
+                        <WrapPanel x:Name="wpDriverCheckList" Orientation="Horizontal" Margin="0,10,0,0" Width="1500">
+                        </WrapPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <Label Content="Driver's Signature"  FontSize="20" FontWeight="Bold"/>
+                            <WindowsFormsHost HorizontalAlignment="Left" Margin="10,10,0,0" Name="windowsFormsHostDriver" Width="400" Height="200" Background="White" />
+                        </StackPanel>
+                    </StackPanel>
+
+                  
+                    <StackPanel Grid.Row="7">
+                        <Label Content="Mechanic's Signature"  FontSize="20" FontWeight="Bold"/>
+                        <WindowsFormsHost HorizontalAlignment="Left" Margin="10,10,0,0" Name="windowsFormsHostMechanic" Width="400" Height="200" Background="White" />
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="8" Orientation="Horizontal"  >
+                        <Button x:Name="btnSave" Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="50" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Save" Click="btnSave_Click" Margin="5"/>
+                        <Button x:Name="btnClear" Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="50" Width="160" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Clear signature" Click="btnClear_Click"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost>
+        </materialDesign:Card>
+    </ScrollViewer>
+</Page>

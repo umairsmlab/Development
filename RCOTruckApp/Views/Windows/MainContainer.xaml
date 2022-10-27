@@ -1,0 +1,93 @@
+﻿<Window x:Class="RCOTruckApp.Views.Windows.MainContainer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="{x:Null}"
+      WindowStartupLocation="CenterScreen"
+      Icon="/Assets/Images/logo.png"
+        Width="1500"
+        Height="1000"
+        ScrollViewer.CanContentScroll="True"
+       ScrollViewer.HorizontalScrollBarVisibility="Auto">
+
+    <Grid>
+        <StackPanel>
+            <Menu>
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+
+                <MenuItem Header="_File">
+                    <MenuItem Header="Send _Log Data" />
+                    <MenuItem Header="Setttings" />
+                    <MenuItem Header="Sync Status" />
+                    <MenuItem Header="Start Exempt Road" />
+                    <MenuItem Header="End Cycle" />
+                    <MenuItem Header="Drop Trailer" />
+                    <MenuItem Header="Pickup Trailer" />
+                    <MenuItem Header="SignOut" Name="btnSignOut" Click="btnSignOut_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Drive" x:Name="btnDrive" Click="btnDrive_Click"/>
+
+                <MenuItem Header="PreTrip">
+                    <MenuItem Header="Add Pretrip checklist" x:Name="btnAddPretripChecklist" Click="btnAddPretripChecklist_Click" />
+                    <MenuItem Header="Personal Conveyance (Off Duty)" x:Name="btnPersonalConveyance" Click="btnPersonalConveyance_Click" />
+                    <MenuItem Header="Yard Moves" />
+                    <MenuItem Header="Work (On Duty)" />
+                </MenuItem>
+
+                <MenuItem Header="Status">
+                    <StackPanel Orientation="Horizontal">
+                        <MenuItem Header="Off Duty" x:Name="OffDuty" Click="OffDuty_Click"/>
+                        <CheckBox x:Name="chkOffDuty" IsEnabled="False" FocusVisualStyle="{DynamicResource CheckBoxFocusVisual}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <MenuItem Header="On Duty" x:Name="OnDuty" Click="OnDuty_Click"/>
+                        <CheckBox x:Name="chkOnDuty" IsEnabled="False" FocusVisualStyle="{DynamicResource CheckBoxFocusVisual}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <MenuItem Header="Sleeper Berth" x:Name="SleepingBirth" Click="SleepingBirth_Click"/>
+                        <CheckBox x:Name="chkSleepingBirth" IsEnabled="False" FocusVisualStyle="{DynamicResource CheckBoxFocusVisual}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <MenuItem Header="Driving" x:Name="Driving" Click="Driving_Click"/>
+                        <CheckBox x:Name="chkDriving" IsEnabled="False" FocusVisualStyle="{DynamicResource CheckBoxFocusVisual}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <MenuItem Header="Break" x:Name="Break" Click="Break_Click"/>
+                        <CheckBox x:Name="chkBreak" IsEnabled="False" FocusVisualStyle="{DynamicResource CheckBoxFocusVisual}"/>
+                    </StackPanel>
+
+                </MenuItem>
+
+                <MenuItem Header="LogBook"/>
+                <MenuItem Header="Work"/>
+
+                <MenuItem HorizontalAlignment="Right">
+                    <MenuItem.Header>
+                        <StackPanel>
+                            <Image Source="/Assets/Images/TruckIcon.png" Height="40" />
+                        </StackPanel>
+                    </MenuItem.Header>
+                    <MenuItem Header="" x:Name="LoggedInUser"/>
+                    <MenuItem Header="" x:Name="TruckNumber" Click="TruckNumber_Click" />
+                    <MenuItem Header="" x:Name="Trailer1Number" Click="TrailerNumber_Click"/>
+                    <MenuItem Header="" x:Name="Trailer2Number" Click="TrailerNumber_Click"/>
+                </MenuItem>
+            </Menu>
+
+            <Frame x:Name="frmNavBar" Content="" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" NavigationUIVisibility="Hidden" />
+        </StackPanel>
+    </Grid>
+
+</Window>
